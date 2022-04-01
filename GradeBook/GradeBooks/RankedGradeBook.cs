@@ -16,20 +16,13 @@ namespace GradeBook.GradeBooks
         {
             if (Students.Count < 5)
                 throw new InvalidOperationException();
-            int betterStudents = 0;
-            for (int i = 0; i < Students.Count; i++)
-            {
-                if (Students[i].AverageGrade > averageGrade)
-                    betterStudents++;
-            }
-            double ranking = (double)(betterStudents + 1) / Students.Count;
-            if (ranking <= 0.2)
+            if (averageGrade > 80)
                 return 'A';
-            if (ranking <= 0.4)
+            if (averageGrade > 60)
                 return 'B';
-            if (ranking <= 0.6)
+            if (averageGrade > 40)
                 return 'C';
-            if (ranking <= 0.8)
+            if (averageGrade > 20)
                 return 'D';
             else return 'F';
         }
